@@ -227,6 +227,35 @@ IF(IGSTK_USE_Ascension3DGTracker)
   LINK_DIRECTORIES( ${ATC_LIBRARY_DIRS} )
 ENDIF(IGSTK_USE_Ascension3DGTracker)
 
+#
+# Atracsys Easytrack500                                                          
+#
+OPTION(IGSTKSandbox_USE_AtracsysEasyTrack500 "Atracsys EasyTrack500 Tracker" OFF)     
+                                                                                
+IF( IGSTKSandbox_USE_AtracsysEasyTrack500 )                                        
+  SET(ETK_INCLUDE_DIR CACHE PATH "")                                             
+  SET(ETK_LIBRARY_DIR CACHE PATH "" )
+  INCLUDE_DIRECTORIES( ${ETK_INCLUDE_DIR} )                                      
+  LINK_DIRECTORIES( ${ETK_LIBRARY_DIR} )                                         
+ENDIF( IGSTKSandbox_USE_AtracsysEasyTrack500 )   
+
+#
+# NDI POLARIS CLASSIC                                                  
+#
+OPTION(IGSTKSandbox_USE_POLARIS_CLASSIC "NDI Polaris Classic Tracker" OFF)      
+
+#
+# FIND AXIOS3D CAMBAR B2
+#
+IF(WIN32)
+  OPTION(IGSTKSandbox_USE_AXIOS3D_CAMBARB2 "Use Axios3D Cambar B2 Tracker" OFF)
+  IF(IGSTKSandbox_USE_AXIOS3D_CAMBARB2)
+    SET(Axios3D_INCLUDE_DIR CACHE PATH "")                                             
+    SET(Axios3D_LIBRARY_DIR CACHE PATH "" )
+    INCLUDE_DIRECTORIES( ${Axios3D_INCLUDE_DIR} )                                      
+    LINK_DIRECTORIES( ${Axios3D_LIBRARY_DIR} )        
+  ENDIF(IGSTKSandbox_USE_AXIOS3D_CAMBARB2)
+ENDIF(WIN32)
 
 #
 # Use OpenIGTLink protocol
